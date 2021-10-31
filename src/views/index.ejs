@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <%- include ("partials/head") %>
+        <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <%- include ("partials/sidenav") %>
+
+    <div class="main p-4">
+
+        <%- include ("partials/navigation") %>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-10">
+                    <% let valor=0 %>
+                    <div class="container row row-cols-1 row-cols-md-3 g-4">
+                        <% images.forEach(function (image) { %>
+                            <% for( let i=0; i < image.veces; i++ ) { %>
+                                <% valor=valor + image.precio %>
+                                <div class="card border-primary animate__animated animate__rubberBand"
+                                    style="max-width: 16rem;">
+                                    <div class="card-header"><%= image.title %></div>
+                                    <img src="/<%= image.path %>" class="img-fluid rounded-start" alt="...">
+                                    <div class="card-body text-primary">
+                                        <p class="card-text">$<%= image.precio %></p>
+                                        <a href="/image/<%= image._id %>/remove" class="btn btn-danger d-md-block">Sacar</a>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="mb-3">
+                        <h4>Orden:</h4>
+                        <h3 id="orden"><%= valor %></h3>
+                        <a href="/clear" class="btn btn-primary mb-3 btn-sm" type="button">Nueva Orden</a>
+                        <a href="#" class="btn btn-success mb-3 btn-sm" type="button">Guardar Orden</a>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Diferencia($):</label>
+                        <h4 id="diferencia">0</h4>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Pagado($):</label>
+                        <h4 id="pagado">0</h4>
+
+                        <button type="button" class="btn btn-secondary btn-sm mb-3" id="btnBorrarCuenta">Borrar Cuenta</button>
+
+                        <button type="button" class="btn btn-warning btn-sm" id="btnM50">$50</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="btnM100">$100</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="btnM200">$200</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="btnM500">$500</button>
+                        <button type="button" class="btn btn-warning btn-sm" id="btnM1k">$1000</button>
+
+                        <button type="button" class="btn btn-primary btn-sm" id="btn1k">$1.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn2k">$2.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn5k">$5.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn10k">$10.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn20k">$20.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn50k">$50.000</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn100k">$100.000</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include ("partials/footer") %>
+
+</html>

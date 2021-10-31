@@ -1,0 +1,26 @@
+                <% images.forEach(function (image) { %>
+
+                        <div class="card border-primary mb-3 animate__animated animate__rubberBand" style="max-width: 16rem;">
+                            <div class="card-header"><%= image.title %></div>
+                            <img src="/<%= image.path %>" class="img-fluid rounded-start" alt="...">
+                            <div class="card-body text-primary">
+                              <!-- <h5 class="card-title"><%= image.title %></h5> -->
+                              <p class="card-text">$<%= image.precio %></p>
+                              <!-- <p class="card-text"><small class="text-muted">Last updated <%= format(image.Created_at) %></small></p> -->
+                                <a href="/image/<%= image._id %> " class="btn btn-primary">View Pic</a>
+                            </div>
+                        </div>
+
+                <% }) %>
+
+
+
+                 <% if (image.description == 'Almuerzos') { %> 
+
+                 <% } %>
+
+
+
+                 <% if (image.adicionar == "ON") { %>
+
+                 <% } %>

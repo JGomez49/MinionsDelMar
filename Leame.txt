@@ -1,0 +1,13 @@
+Este programa esta basado en https://www.youtube.com/watch?v=aNYX2F1RX-s&t=49s
+
+GIT:
+git init
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JGomez49/MinionsDelMar.git
+git push -u origin main
+
+git remote add origin https://github.com/JGomez49/MinionsDelMar.git
+git branch -M main
+git push -u origin main
+
